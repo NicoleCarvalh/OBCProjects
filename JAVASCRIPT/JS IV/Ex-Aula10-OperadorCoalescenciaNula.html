@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operador de Coalescência Nula</title>
+  </head>
+  <body>
+    <h3>Nullish coalescing operator (??)</h3>
+
+    <p>
+      Significado de coalescência: Fusão; união, junção ou aderência do que
+      estava separado
+    </p>
+
+    <p>Esse é considerado um operador lógico, como OU e E.</p>
+
+    <p>
+      Ele retorna o seu operando do lado direito quando o seu operador do lado
+      esquerdo é null ou undefined
+    </p>
+
+    <p>Caso contrário, ele retorna o seu operando do lado esquerdo</p>
+
+    <h4>Uso</h4>
+
+    <p>Utiliza dois pontos de interrogação "??"</p>
+
+    <p>
+      Vale destacar que ele é diferente do operador lógico OU " || ", que dá
+      curto-circuito em expressões falsy (por exemplo, o número 0)
+    </p>
+
+    <p>
+      <strong
+        >Em JavaScript, um valor falsy é um valor que é considerado falso. Os
+        valores falsy são aqueles que são avaliados como falso quando usados num
+        contexto booleano.</strong
+      >
+    </p>
+
+    <p>Os valores falsy em JavaScript são:</p>
+    <p><strong>false, 0, "" (string vazia), null, NaN, undefined.</strong></p>
+
+    <p>
+      Pode ser usado para operações lógicas e tambpem para atribuições de
+      valores padrão através de short-circuit evaluation (avaliação de
+      curto-circuito)
+    </p>
+
+    <p>
+      No JavaScript, as expressões podem dar curto-circuito. O que isso? À
+      medida que cada operando é convertido em um booleano, se o resultado de
+      uma conversão for false , o operador AND (ou OR) para e retorna o valor
+      original desse operando falso; ou seja, ele não avalia nenhum dos
+      operandos restantes.
+    </p>
+
+    <p>Exemplo:</p>
+
+    <p>let a = 0</p>
+    <p>let c = a || 42 // c será 42</p>
+    <p>c = a ?? 41 // c será 0, pois é falsy, mas não nullish</p>
+    <p>c = null ?? 42 // será 42</p>
+
+    <script>
+
+      //demonstração
+      const a = 0; //false
+
+      const b = null; // false
+
+      const c = "Teste"; // true
+
+      console.log(a || b || c); // Teste
+
+      console.log(a ?? b ?? c); // 0
+
+      //uso comum
+      let d = 0;
+
+      let e = d || 42
+
+      //isso serve para que possamos atribuir valores padrão para alguma variável. No exemplo, caso o valor de d seja falso, atribua o valor de 42
+
+      console.log(`Operador OU: ${d, e}`)
+
+      e = d ?? 42
+
+      console.log(`Operador Coalescência: ${d, e}`)
+
+
+
+      //exemplo de short-circuit usando o operador OR -> notamos que a função atribuida ao valor FALSE não é executada
+      function A() {
+        console.log("called A");
+        return false;
+      }
+      function B() {
+        console.log("called B");
+        return true;
+      }
+
+      console.log(B() || A()); // Resultado do console: called B - true
+      // Logs "called B" due to the function call,
+      // then logs true (which is the resulting value of the operator)
+    </script>
+  </body>
+</html>

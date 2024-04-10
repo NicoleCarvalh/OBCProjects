@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread Operator</title>
+  </head>
+  <body>
+    <p>
+      Spread Operator " ... " é um operador que permite espalhar (do inglês
+      spread), os elementos de um objetp iterável, como um array ou uma string
+    </p>
+    <p>Ele separa os elementos</p>
+
+    <p>Para que é utilizado?</p>
+    <ol>
+      <li>Passar vários parâmetros de uma única vez</li>
+      <li>Clonar objetos iteráveis, ou seja, duplicar eles</li>
+      <li>Fazer manipulações sem afetar o objeto original</li>
+      <li>Transformar strings em arrays</li>
+    </ol>
+
+    <p>Utiliza três pontos: <strong>...iterableObject</strong></p>
+    <p>Pode ser usado para diferentes fins. Exemplo:</p>
+
+    <p>let str = "Olá, Mundo"</p>
+
+    <p>let arr = [0, 1, 8, 2, 7]</p>
+
+    <p>console.log(...str) // separa as letras: O l á , M u n d o</p>
+
+    <p>console.log(...arr) // separa os elementos 0 1 8 2 7</p>
+
+    <script>
+      //uso
+      const towns = [
+        "Prontera",
+        "Izlude",
+        "Payon",
+        "Alberta",
+        "Peffen",
+        "Pereira",
+        "Santos",
+      ];
+
+      console.log(towns); // ['Prontera', 'Izlude', 'Payon', 'Alberta', 'Peffen', 'Pereira', 'Santos']
+      console.log(...towns); // Prontera Izlude Payon Alberta Peffen Pereira Santos
+      console.log(...towns[0]); // P r o n t e r a
+
+      //clonar objeto
+
+      //tentativa de clonar que não funciona, apenas referencia o array original, ou seja, aplica mudanças do townsCopy ao towns original
+      townsCopy = towns;
+
+      townsCopy.pop();
+      townsCopy.pop();
+      townsCopy.push("Juno");
+
+      console.log({ towns, townsCopy });
+
+      //utilização correta com o spread operator
+      const townsClone = [...towns];
+
+      townsClone.push("Aldebaran");
+
+      console.log({ towns, townsClone, townsCopy });
+
+      //caso de uso específico de spread em objetos normais
+      const townsObj = {
+        ...towns,
+      };
+
+      const townsObjClone = { ...townsObj }
+
+      townsObjClone.test = "Test"
+
+      console.log({ townObj, townsObjClone });
+    </script>
+  </body>
+</html>

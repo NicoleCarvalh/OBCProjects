@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desestruturação de Objetos e Arrays</title>
+</head>
+<body>
+  <p>Desestruturação é uma funcionalidade moderna que permite que a gente crie variaveis a partir de priopriedadedes de um objeto ou de elementos de um array</p>
+  
+  <p>Com a desestruturação de objetos, podemos pegar uma parte da estrutura desse objeto e criar uma variável em cima dessa parte</p>
+
+  <p>No caso das priopriedadedes do objeto, as variáveis serão criadas com o mesmo nome da propriedade</p>
+
+  <p>No caso de elementos do array, podemos atribuir qualquer nome para a variável. Utilizamos a ordem dos itens, ou seja, os índices, para trabalhar com ele</p>
+
+  <p>Também pode ser utilizada de outras formas, como nos parâmetros de uma função</p>
+
+  <p>Exemplo:</p>
+
+  <p>const {name, email} = person</p>
+  <p>const [x, y] = coordinates</p>
+
+  <p>function hello({name}){
+    <p>console.log(`Hello, ${name}`)</p>
+  <p>}</p>
+  </p>
+
+
+  <script>
+    //desestrututrando objetos
+    const person = {
+      name: 'Luke',
+      job: 'Farmer',
+      parents: ['Anakin', 'Padme']
+    }
+
+    const name = person.name;
+  
+    const { job, parents } = person;
+
+    console.log(name, job, parents)
+
+    //desestruturando arrays
+
+    const [ father, mother ] = parents
+
+    const [ a, b ] = parents
+
+    console.log(a, b); //Anakin Padme
+    console.log(father, mother); //Anakin Padme
+
+    //Exemplo de utilização
+
+    //caso comum
+    function createUser(person){
+      const id = Math.floor(Math.random() * 9999) // gera um número aleatório entre 0 e 9999
+      return {
+        id,
+        name: person.name,
+        job: person.job,
+        parents: person.parents
+      }
+    }
+    const luke = createUser(person);
+
+    console.log(luke);
+
+    //caso simplificado com desestruturação nos parâmetros
+    function createUser({ name, job, parents }){
+      const id = Math.floor(Math.random() * 9999) // gera um número aleatório entre 0 e 9999
+      return {
+        id,
+        name,
+        job,
+        parents
+      }
+    }
+    const luke2 = createUser(person);
+
+    console.log(luke2);
+
+  </script>
+</body>
+</html>

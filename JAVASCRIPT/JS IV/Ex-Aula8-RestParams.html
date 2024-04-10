@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rest Params (parâmetros rest)</title>
+</head>
+<body>
+  <p>É uma técnica que permite uma função receber qualquer número de parâmetros</p>
+
+  <p>Permite pegar todos os parametros que foram passados em uma função e agrupar o conjunto deles em um arrar</p>
+  <p>Podemos trabalhar dentro da função os parâmetros no formato de um array</p>
+
+  <p>Ou seja, permitindo manipular esses parâmetros como um array na definição da função, ele se diferencia do objeto <strong>arguments</strong> (outro nome para parâmetros)</p>
+
+  <p>Podemos tratar os parâmetros com os métodos dos arrays dentro da função</p>
+
+  <p>Caso tenhamos mais de um parâmetro, devemos colocar o rest params sempre no final na ordem dos parâmetros, sempre deverá ser o último na lista de parâmetros. Se colocarmos " function sum(...numbers, param) " teremos um erro. O certo será <strong>" funtion sum(param, ...numbers) "</strong></p>
+
+  <p>Exemplo:</p>
+
+  <p>function sum(...numbers) {</p>
+    <p>return numbers.reduce((accum,num) = > accum + num, 0)</p>
+  <p>}</p>
+
+  <script>
+    //
+    function sum(...numbers){
+      return numbers.reduce((accum, num) => accum + num, 0)
+    }
+
+    console.log(sum(1, 1)) //2
+    console.log(sum(1, 8, 6, 2, 5, 85, 98, 556)) // 761
+  </script>
+</body>
+</html>
